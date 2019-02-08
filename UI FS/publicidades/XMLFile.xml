@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Advertisements>
+  <Ad>
+    <ImageUrl>http://localhost:58353/images/publicidades/Venum_Banner.jpg</ImageUrl>
+    <NavigateUrl>https://www.venum.com/es/</NavigateUrl>
+    <AlternateText>Venum Fightwear</AlternateText>
+    <Impressions>40</Impressions>
+    <Keyword>Venum</Keyword>
+  </Ad>
+  <Ad>
+    <ImageUrl>http://localhost:58353/images/publicidadesATAMA_BANNER.jpg</ImageUrl>
+    <NavigateUrl>https://www.atama.com.br/</NavigateUrl>
+    <AlternateText>Atama</AlternateText>
+    <Impressions>40</Impressions>
+    <Keyword>Atama</Keyword>
+  </Ad>
+</Advertisements>

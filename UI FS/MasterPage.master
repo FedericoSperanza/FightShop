@@ -1,0 +1,465 @@
+﻿<%@ Master Language="VB" CodeFile="MasterPage.master.vb" Inherits="MasterPage" %>
+
+<%@ Register Assembly="System.Web.DataVisualization, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" Namespace="System.Web.UI.DataVisualization.Charting" TagPrefix="asp" %>
+
+
+
+<%@ Register Src="~/UserControls/ModalResetPass.ascx" TagPrefix="uc1" TagName="ModalResetPass" %>
+
+
+
+
+
+
+
+<!DOCTYPE html>
+  <!-- Bootstrap core CSS-->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Page level plugin CSS-->
+    <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin.css" rel="stylesheet">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+  
+    <script type="text/javascript">
+        var zoom = 0;
+        function incFontSize() {
+            if (zoom < 4) {
+                zoom++;
+                console.log('incFontSize');
+                $('#container *').each(function () {
+                    var k = parseInt($(this).css('font-size'));
+                    var redSize = k + 1; //((k * 105) / 100);
+                    $(this).css('font-size', redSize);
+
+                });
+            }
+        }
+        function decFontSize() {
+            if (zoom > 0) {
+                zoom--;
+                $('#container *').each(function () {
+                    var k = parseInt($(this).css('font-size'));
+                    var redSize = k - 1; //((k * 95) / 100);
+                    $(this).css('font-size', redSize);
+
+                });
+            }
+        }
+
+    </script>
+
+    
+    
+    
+    
+    
+    
+    
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  
+  <script src="Scripts/jquery-3.0.0.min.js"></script>
+  <%-- <script src="DataTables-1.10.18/js/jquery.dataTables.min.js"></script>--%>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
+   <%-- <link href="DataTables-1.10.18/css/jquery.dataTables.min.css" rel="stylesheet" />--%>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="Scripts/bootstrap.min.js"></script>
+   <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <script src="js/bootstrap.min.js"></script>
+    <script src="Scripts/bootstrap.min.js"></script>
+ 
+  
+ 
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+
+    <script src="Scripts/bootstrap.bundle.min.js"></script>
+    <title>FightShop</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
+<link href="css/slider.css" rel="stylesheet" type="text/css" media="all"/>
+
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">    
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous" />
+  
+
+
+<script type="text/javascript" src="js/move-top.js"></script>
+<script type="text/javascript" src="js/easing.js"></script>
+<script type="text/javascript" src="js/startstop-slider.js"></script>
+    
+    <style type="text/css">
+
+        btnIngreso{
+            text-align:center;
+        }
+        .auto-style18 {
+            display: block;
+            width: 21%;
+            height: 17px;
+            font-size: 1rem;
+            line-height: 1.5;
+            color: #495057;
+            background-clip: padding-box;
+            border-radius: .25rem;
+            transition: none;
+            border: 1px solid #ced4da;
+            background-color: #fff;
+        }
+        .auto-style19 {
+            height: 62px;
+            margin-bottom: 10px;
+        }
+        .auto-style22 {
+            width: 95%;
+            height: 510px;
+            margin: 0 auto;
+        }
+        .auto-style23 {
+            position: relative;
+            background: #FCFCFC;
+            border-top: 1px solid #CECECE;
+            margin: 20px auto;
+            left: 5px;
+            top: 112px;
+            height: 78px;
+        }
+        </style>
+    
+        
+
+</head>
+<body>
+  <form runat="server">
+      <div class="auto-style22">
+	<div class="header">
+       
+   
+		<div class="headertop_desc">
+       <div id="SectorLogeo" runat="server" class="auto-style19">
+		          <div class="nav navbar-nav mr-auto" style="width: 27px">
+                    <a class="nav-link" href="#" onclick="incFontSize()"><i class="fas fa-search-plus"></i></a>
+                    <a class="nav-link" href="#" onclick="decFontSize()"><i class="fas fa-search-minus"></i></a>
+                </div>       
+         
+                     <div class="pull-left" id="google_translate_element"></div><script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'es', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+}
+
+
+        var zoom = 0;
+function incFontSize() {
+    if (zoom < 4) {
+        zoom++;
+        console.log('incFontSize');
+        $('#container').each(function () {
+            var k = parseInt($(this).css('font-size'));
+            var redSize = k + 1; //((k * 105) / 100);
+            $(this).css('font-size', redSize);
+
+        });
+    }
+}
+function decFontSize() {
+    if (zoom > 0) {
+        zoom--;
+        $('#container').each(function () {
+            var k = parseInt($(this).css('font-size'));
+            var redSize = k - 1; //((k * 95) / 100);
+            $(this).css('font-size', redSize);
+
+        });
+    }
+}
+
+</script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+       
+              
+		         <div class="dropdown pull-right">
+
+  <button runat="server" visible="false"  class="btn btn-secondary dropdown-toggle" type="button" id="ddUserLog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Usuario</button>
+  <div class="dropdown-menu" aria-labelledby="ddUserLog">
+    <a class="dropdown-item" href="MiCuenta.Aspx">Mi Cuenta</a>
+    <a class="dropdown-item" runat="server" id="dditemMiCompra" href="Cart.Aspx">Mi Compra</a>
+      
+    <a runat="server" onserverclick="deslogin" class="dropdown-item" href="#">Salir</a>
+  </div>
+
+           </div>
+                            
+		         <input type="email" align="right"  id="txtEmail" aria-describedby="emailHelp" class="auto-style18 pull-right"  placeholder="Email" required="required" runat="server" style="width: 14%" />
+                <br />
+                 <input runat="server" align="right" type="password" class="auto-style18 pull-right" id="txtPass" placeholder="Password" required="required" style="width: 14%"/>
+                     <br />
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+               &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 
+             <asp:Button  type="submit" ID="btnLogin"  runat="server" Text="Ingresar" class="btn btn-primary pull-right btn-sm" style="padding: 1px ; font-size: 10px" />
+                          <a href="ResetPass.aspx" id="aOlvidoPass" runat="server" style="padding: 1px ; font-size: 9px"  >Olvido Contraseña</a>
+                 -
+                    <a href="Registrarse.aspx" id="aRegistrarse" runat="server"  style="padding: 1px ; font-size: 9px" >Registrarse</a>
+                
+                             
+                
+
+                <div>
+<%-- CONTROL DE USUARIO MODAL NUEVA PASS POR RESET --%>
+                    <uc1:ModalResetPass runat="server" ID="ModalResetPass" />
+
+                </div>
+
+                                        
+                 
+                
+                 
+                 
+                  
+                  
+                 
+                
+                   </div>
+		
+            
+
+			
+           
+                        
+         
+		</div>
+       
+	
+          
+	 <div class="clear"></div>
+        
+            <%-- ACA ESTABA EL LABEL ANTERIOR DE BIENVENIDA --%>
+            <div class="clear">
+           
+            </div>
+        
+  </div>
+      
+        <%-- MENU USUARIO REGISTRADO VARIABLE OPCIONES --%>
+	<%--<div class="auto-style7">
+	     	<div class="menu">
+	     		<ul>
+			    	<li class="active"><a href="" style="height:15px;padding:15px;font-size:12px">Home</a></li>
+			    	
+			    	<div class="clear"></div>
+     			                 </ul>
+               
+    
+	     	</div>
+	    <div class="clear"></div>
+	     </div>	  --%>
+
+         <nav class="navbar navbar-expand-lg navbar-light bg-light">
+ 
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+             <%-- collapse navbar-collapse --%>
+  <div class="container1" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" runat="server" href="Home.aspx">Home<span class="sr-only"></span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="Nosotros.aspx">Nosotros</a>
+      </li>
+         <li class="nav-item">
+       <%-- <a class="nav-link" id="a1" visible="true" runat="server" onclick="ShowCatalogo()" >Catalogo</a>--%>
+             <asp:LinkButton ID="lbCatalogo" CssClass="nav-link" runat="server">Catalogo</asp:LinkButton>
+
+              </li>
+     <%--   <li class="nav-item">
+        <a class="nav-link" id="aPuntos" visible="false" runat="server" href="#.aspx">Puntos</a>
+      </li>--%>
+        <li class="nav-item">
+        <a class="nav-link" id="aAdministracion" visible="false" runat="server" href="Default_Admin.aspx">Administracion</a>
+      </li>
+        <li class="nav-item">
+               <a class="nav-link" id="aNoticias" visible="true" runat="server" href="Noticias.aspx">Noticias</a>
+             
+    
+        </li>
+
+          <li class="nav-item">
+               <a class="nav-link" id="a1" visible="true" runat="server" href="RankingProductos.aspx">Rank Productos</a>
+             
+    
+        </li>
+       
+    </ul>
+    <div class="form-inline my-2 my-lg-0">
+			&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+         <%--<input class="form-control mr-sm-2" id="txtSearch" runat="server" type="search"  aria-label="Search"> --%>
+      <asp:TextBox ID="txtBusqueda" runat="server" class="form-control-sm mr-1" placeholder="Buscar"></asp:TextBox>
+                            <asp:ImageButton ID="btnBuscar" runat="server" ImageUrl="http://www.wadlopenfriesewad.nl/wp-content/uploads/2015/03/binoculars.png" Height="18px" style="margin-left:1vh; width: 18px;" formnovalidate/>
+                      
+        
+         <%-- <asp:TextBox CssClass="form-control mr-sm-2" id="txtsearch" runat="server" aria-label="Search"></asp:TextBox>
+         <asp:linkbutton runat="server" ID="btnSearchAllWeb" class="btn btn-outline-success my-2 my-sm-0" type="submit"><span aria-hidden="true" class="glyphicon glyphicon-search"></span></asp:linkbutton>
+ --%>
+        <%-- placeholder="buscar" tag sacado de input search xq no traduce --%>
+    <%--  <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+    --%>      
+        
+
+    </div>
+    
+      
+     
+    
+  </div>
+</nav>
+           <%-- ENCUESTA --%>
+          <%--<div runat="server" id="divEncuesta"  class="card" style="width: 18rem; position: fixed; bottom: 50px; right: 5px; border-width: 2px; border-color: black">
+            <div id="divEncuestaPreguntas" runat="server" class="card-body" visible="true">
+                <h5 class="card-title">Encuesta</h5>
+                <p class="card-text" runat="server" id="encuestaText"></p>
+                <asp:Repeater ID="rptEncuestaOpciones" runat="server">
+                    <ItemTemplate>
+                        <asp:LinkButton
+                            class="btn btn-primary"
+                            runat="server"
+                            UseSubmitBehavior="false"
+                            CommandArgument='<%# Eval("id") %>'>
+                                <%# Eval("nombre") %>
+                        </asp:LinkButton>
+                    </ItemTemplate>
+                </asp:Repeater>
+            </div>
+            
+            <div ID="divEncuestaChart" runat="server" class="card-body" visible="false">
+                <h5 class="card-title">Resultados</h5>
+                <asp:Chart ID="chartEncuesta" runat="server" style="max-width: 100%">
+                    <Series>
+                        <asp:Series Name="Series1" ></asp:Series>
+                    </Series>
+                    <ChartAreas>
+                        <asp:ChartArea Name="ChartArea1"></asp:ChartArea>
+                    </ChartAreas>
+                </asp:Chart>
+            </div>
+
+                <asp:LinkButton class="nav-link" ID="btnCloseEncuesta" runat="server" Style="position: absolute; right: 0; top: 0">
+                <i class="fas fa-times"></i>
+            </asp:LinkButton>
+              
+    
+               </div>
+      
+           --%>
+ 
+             <%-- INICIO DEL FORM PARA EL SERVIDOR --%>
+   <div id="container">
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        
+
+
+        </asp:ContentPlaceHolder>
+
+       </div>
+
+            <!-- Modal -->
+<div class="modal fade" id="mensaje" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Transaccion</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       Baja de NewsLetter Realizada !
+      </div>
+      <div class="modal-footer">
+            
+      </div>
+    </div>
+  </div>
+</div>
+   
+       <script type="text/javascript">
+    function openModal() {
+        $('#mensaje').modal('show');
+    }
+</script>
+       
+
+
+<%-- ACA ESTABA ANTES /FORM --%>
+       
+   
+   
+    <br />
+        <br />
+   	  
+        
+   <%--auto-style23--%>
+      <div class="auto-style23">	
+	     <div class="section group" style="height: 74px; margin-top: 10px;">
+				<div class="col_1_of_4 span_1_of_4">
+						<h4><a href="Nosotros.aspx">Nosotros</a></h4>
+						                    
+					</div>
+			<div class="col_1_of_4 span_1_of_4">
+						<h4><a href="Terms.aspx">Terminos y Condiciones</a</h4>
+						
+                   
+					</div>
+			<div class="col_1_of_4 span_1_of_4">
+						<h4><a href="Politicas.aspx">Politicas de Seguridad</a</h4>
+						
+                   
+					</div>
+
+                	
+             <div class="col_1_of_4 span_1_of_4" style="width: 10%">
+					
+					<%--	<div class="social-icons">--%>
+							<h4><a href="FAQS.Aspx">FAQS</a></h4>
+                 <ul>
+                     <li> <a href="NewsLetter.Aspx" runat="server" id="linkAddNewsletter">NEWSLETTER</a></li>
+                     <li> <asp:LinkButton runat="server" id="linkDesAddNewsLetter">Baja NewsLetter</asp:LinkButton><%--<a href="#" runat="server" id="linkDesAddNewsLetter" onclick="bajaNewsLetter" class="auto-style24">BAJA NEWSLETTER</a>--%></li>
+                 </ul>
+					   		 <%-- <ul>--%>
+							     <%-- <li><a href="#" target="_blank"><img src="" alt="" /></a></li>
+							      <li><a href="#" target="_blank"><img src="" alt="" /></a></li>
+							      <li><a href="#" target="_blank"><img src="" alt="" /> </a></li>
+							      <li><a href="#" target="_blank"> <img src="" alt="" /></a></li>
+							      <li><a href="#" target="_blank"> <img src="" alt="" /></a></li>--%>
+							    <%--  <div class="clear"></div>
+						     </ul>--%>
+   	 				<%--	</div>--%>
+				</div>
+			</div>			
+        </div>  
+				<%--<p>FightShop 2018</p>--%>
+		   </div>
+      <%--<div class="copy_right">
+    </div>--%>
+      
+   
+    <a href="#" id="toTop"><span id="toTopHover"> </span></a>
+        </form>
+</body>
+</html>

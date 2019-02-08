@@ -1,0 +1,131 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <style type="text/css">
+        body {
+            font-family: Arial;
+        }
+
+        .auto-style1 {
+            width: 126px;
+            height: 87px;
+        }
+
+        .auto-style2 {
+            width: 141px;
+        }
+
+        .auto-style3 {
+            font-weight: normal;
+        }
+
+        .auto-style4 {
+            width: 602px;
+            font-weight: bold;
+            background-color: #C0C0C0;
+        }
+
+        .auto-style5 {
+            font-weight: bold;
+            background-color: #C0C0C0;
+        }
+
+        .auto-style6 {
+            height: 423px;
+            width: 602px;
+        }
+
+        .top {
+            vertical-align: top;
+        }
+
+        .auto-style7 {
+            vertical-align: top;
+            height: 423px;
+            text-align: right;
+        }
+
+        .auto-style8 {
+            height: 26px;
+            text-align: right;
+            font-weight: bold;
+            font-size: large;
+            width: 602px;
+        }
+
+        .auto-style9 {
+            vertical-align: top;
+            height: 26px;
+            font-weight: 700;
+            font-size: large;
+            text-align: right;
+        }
+        .cant{
+
+        }
+        .NCfont{
+            font-size:small
+
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+
+            <table border="1" style="width:750px;">
+                <tr>
+                    <td colspan="2">
+                        <table style="width:100%;">
+                            <tr>
+                                <td class="auto-style2">
+                                    <strong>
+                                        <img class="auto-style1" src="https://image.ibb.co/hVxGL0/Logo-Fight-Shop.png"  />
+                                    </strong>
+                                </td>
+                                <td>
+                                    <h1 class="auto-style3"><strong>{comprobante}</strong></h1>
+                                    <strong>
+                                         Razón Social: FightShop<br />
+                                        <br />
+
+                                        <label class="NCfont">{NCs}</label> 
+                                       
+                                        <br />
+                                        Fecha de emisión: {fecha}
+                                    </strong>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2"><strong>Cliente: {cliente}</strong></td>
+                </tr>
+                <tr>
+                    <!--<td >Cantidad</td>-->
+
+
+                    <td class="auto-style4">Producto</td>
+                    
+                    <td class="auto-style5">Subtotal</td>
+                </tr>
+                <tr class="top">
+                    <!--<td class="auto-style7">{cantidad}</td>-->
+                    <td class="auto-style6">{producto}</td>
+                   
+                    <td class="auto-style7">{subtotal}</td>
+
+                   
+                </tr>
+                <tr class="top">
+                    <td class="auto-style8">Importe total:</td>
+                    <td class="auto-style9">{totalfac}</td>
+                </tr>
+            </table>
+
+        </div>
+    </form>
+</body>
+</html>
