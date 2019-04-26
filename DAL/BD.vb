@@ -2,7 +2,7 @@
 Imports System.Configuration
 Public Class BD
     ' Private Str As String = "Data Source=.\SQL_UAI;Initial Catalog=FightShop;Integrated Security=True"
-    Private Str As String = "Data Source=FEDERICO-PC\SQLEXPRESS;Initial Catalog=FightShop;Integrated Security=True"
+    Private Str As String = "Data Source=(local);Initial Catalog=FightShop;Integrated Security=True"
     'Private Str As String = "Data Source=DESKTOP-2LFLOUU;Initial Catalog=FightShop;Integrated Security=True"
     'Private Str As String = "Data Source= SPERANZA-PC\SQL_FEDE;Initial Catalog=FightShop;Integrated Security=True"
 
